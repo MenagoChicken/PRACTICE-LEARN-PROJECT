@@ -2,7 +2,7 @@
 2. Record the turn number the player is on. Start it on 1. - done
 3. Provide the player with a way to guess what the number is. - done
 4. Once a guess has been submitted first record it somewhere so the user can see their previous guesses. - done
-5. Next, check whether it is the correct number.
+5. Next, check whether it is the correct number. - done
 6. If it is correct:
    - Display congratulations message.
    - Stop the player from being able to enter more guesses (this would mess the game up).
