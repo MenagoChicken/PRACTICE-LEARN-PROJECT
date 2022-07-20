@@ -5,6 +5,7 @@ let userGuessArrray = [];
 console.log(randomNumber);
 let guessField = document.getElementById("guessField");
 let guessSubmit = document.getElementById("guessSubmit");
+let userGuesses = document.querySelector(".userGuesses");
 
 function addUserGuess(userGuess) {
   userGuessArrray.push(userGuess);
@@ -15,5 +16,6 @@ guessSubmit.addEventListener("click", () => {
   guessAttempt++; // after submiting incresse
   //The value property sets or returns the value of the value attribute of a text field.
   addUserGuess(guessField.value);
+  userGuesses.innerText = userGuessArrray;
   console.log(userGuessArrray);
 });
