@@ -3,8 +3,8 @@
 3. Provide the player with a way to guess what the number is. - done
 4. Once a guess has been submitted first record it somewhere so the user can see their previous guesses. - done
 5. Next, check whether it is the correct number. - done
-6. If it is correct:
-   - Display congratulations message.
+6. If it is correct: - done
+   - Display congratulations message. - done
    - Stop the player from being able to enter more guesses (this would mess the game up).
    - Display control allowing the player to restart the game.
 7. If it is wrong and the player has turns left:
