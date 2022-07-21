@@ -5,12 +5,12 @@
 5. Next, check whether it is the correct number. - done
 6. If it is correct: - done
    - Display congratulations message. - done
-   - Stop the player from being able to enter more guesses (this would mess the game up).
-   - Display control allowing the player to restart the game.
+   - Stop the player from being able to enter more guesses (this would mess the game up). -done
+   - Display control allowing the player to restart the game. -done
 7. If it is wrong and the player has turns left:
-   - Tell the player they are wrong and whether their guess was too high or too low.
-   - Allow them to enter another guess.
-   - Increment the turn number by 1.
+   - Tell the player they are wrong and whether their guess was too high or too low. - done
+   - Allow them to enter another guess. - done
+   - Increment the turn number by 1. - done
 8. If it is wrong and the player has no turns left:
    - Tell the player it is game over.
    - Stop the player from being able to enter more guesses (this would mess the game up).
