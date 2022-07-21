@@ -26,7 +26,10 @@ guessSubmit.addEventListener("click", () => {
     guessField.value = "";
     console.log(userGuessArrray);
   } else {
-    displayNumbersOnly();
+    displayMessage(
+      errorMessage,
+      "Mate you've done something wrong! Only numbers!"
+    );
     guessField.value = "";
   }
 });
@@ -36,7 +39,7 @@ newGame.addEventListener("click", () => {
   userGuessArrray = [];
   displayGuesses();
   newGame.style.display = "none";
-  errorMessage.innerText = "";
+
   guessField.removeAttribute("disabled");
   guessSubmit.removeAttribute("disabled");
 });
@@ -49,11 +52,21 @@ function addUserGuess(userGuess) {
 
 function isTheRandomNumber(number) {
   if (number == randomNumber) {
+    noErrors();
     displayCongratulations();
     guessField.setAttribute("disabled", "");
     guessSubmit.setAttribute("disabled", "");
     newGame.style.display = "";
   }
+}
+
+// NOTE FOR ME - this messages functions can be one function that get message from the list and html tag needs to have this message like this:
+function displayMessage(htmlElement, message) {
+  htmlElement.innerText = message;
+}
+
+function noErrors() {
+  errorMessage.innerText = "";
 }
 
 function displayCongratulations() {
@@ -76,10 +89,6 @@ function displayLow() {
 
 function dispalyHigh() {
   errorMessage.innerText = "Too high, try again.";
-}
-
-function displayNumbersOnly() {
-  errorMessage.innerText = "Mate you've done something wrong! Only numbers!";
 }
 
 function highOrLow(randomNumb, guess) {
