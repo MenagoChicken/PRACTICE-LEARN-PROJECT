@@ -36,10 +36,9 @@ newGame.addEventListener("click", () => {
   newGame.style.display = "none";
   guessField.removeAttribute("disabled");
   guessSubmit.removeAttribute("disabled");
-  console.log(randomNumber);
 });
 
-// FUNCTIONS SECTIONS
+// FUNCTIONS SECTION
 function addUserGuess(userGuess) {
   userGuessArrray.push(userGuess);
 }
@@ -60,13 +59,13 @@ function isTheRandomNumber(number) {
 function highOrLow(randomNumb, guess) {
   if (guess < 1 || guess > 100) {
     displayMessage(errorMessage, "Yo! Stay in the limits");
-    whatAlreadyWasGuessed();
+    displyWhatWasAlreadyGuessed();
   } else if (guess > randomNumb) {
     displayMessage(errorMessage, "Too high, try again.");
-    whatAlreadyWasGuessed();
+    displyWhatWasAlreadyGuessed();
   } else if (guess < randomNumb) {
     displayMessage(errorMessage, "Too low, try again.");
-    whatAlreadyWasGuessed();
+    displyWhatWasAlreadyGuessed();
   } else {
     return;
   }
@@ -94,7 +93,7 @@ function tenGuesses() {
   disableGame();
 }
 
-function whatAlreadyWasGuessed() {
+function displyWhatWasAlreadyGuessed() {
   displayMessage(information, "You've already gueesed: " + userGuessArrray);
 }
 
