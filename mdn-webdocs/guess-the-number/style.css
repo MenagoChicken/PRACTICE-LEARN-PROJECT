@@ -1,5 +1,55 @@
+@import url("https://fonts.googleapis.com/css2?family=Edu+TAS+Beginner:wght@500&display=swap");
+
+* {
+  font-family: "Edu TAS Beginner", cursive;
+  color: #e09f3e;
+}
+
 body {
   width: 70%;
   margin: auto;
   text-align: center;
+  background: rgb(0, 29, 61);
+  background: linear-gradient(
+    90deg,
+    rgba(0, 29, 61, 1) 6%,
+    rgba(0, 53, 102, 1) 68%
+  );
+}
+
+body p {
+  width: 50%;
+  margin: 20px auto;
+}
+
+#guessField {
+  max-width: 30px;
+}
+
+.information {
+  font-weight: 600;
+}
+
+#errorMessage {
+  font-weight: 600;
+  color: crimson;
+}
+
+#guessField {
+  color: rgba(0, 29, 61);
+}
+
+#guessSubmit,
+#newGame {
+  border: none;
+  background: #e09f3e;
+  color: rgba(0, 29, 61);
+  padding: 3px;
+  border-radius: 5px;
+  transition: all 500ms ease;
+}
+
+#newGame:hover {
+  color: rgba(0, 29, 61);
+  background: #fff;
 }
