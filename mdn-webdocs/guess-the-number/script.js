@@ -1,4 +1,4 @@
-let randomNumber = Math.floor(Math.random() * 11); // random number
+let randomNumber = Math.floor(Math.random() * 11 + 1); // random number
 let guessAttempt = 1; // which attempt
 let userGuessArrray = []; // user guesses
 
@@ -11,10 +11,11 @@ let errorMessage = document.getElementById("errorMessage");
 let newGame = document.getElementById("newGame");
 let information = document.querySelector(".information");
 
-// on click button function
+// on click submit button function
 guessSubmit.addEventListener("click", () => {
-  guessAttempt++; // after submiting incresse
   if (Number.isInteger(parseInt(guessField.value))) {
+    guessAttempt++; // after submiting incresse
+    console.log(guessAttempt);
     highOrLow(randomNumber, guessField.value);
     isTheRandomNumber(guessField.value);
     //The value property sets or returns the value of the value attribute of a text field.
@@ -22,9 +23,10 @@ guessSubmit.addEventListener("click", () => {
     //add guess to the table
     addUserGuess(niceFormat);
     //show values to the user
-    displayGuesses();
+    displayMessage(information, "You've already gueesed: " + userGuessArrray);
     guessField.value = "";
     console.log(userGuessArrray);
+    numberOfGuessesCheck();
   } else {
     displayMessage(
       errorMessage,
@@ -35,70 +37,64 @@ guessSubmit.addEventListener("click", () => {
 });
 
 newGame.addEventListener("click", () => {
-  randomNumber = Math.floor(Math.random() * 11 + 1); // doesn't work
+  randomNumber = Math.floor(Math.random() * 11 + 1);
   userGuessArrray = [];
-  displayGuesses();
+  displayMessage(information, "You've already gueesed: " + userGuessArrray);
   newGame.style.display = "none";
-
   guessField.removeAttribute("disabled");
   guessSubmit.removeAttribute("disabled");
+  console.log(randomNumber);
 });
 
 // FUNCTIONS SECTIONS
-
 function addUserGuess(userGuess) {
   userGuessArrray.push(userGuess);
 }
 
 function isTheRandomNumber(number) {
   if (number == randomNumber) {
-    noErrors();
-    displayCongratulations();
-    guessField.setAttribute("disabled", "");
-    guessSubmit.setAttribute("disabled", "");
-    newGame.style.display = "";
+    displayMessage(errorMessage, "");
+    displayMessage(
+      information,
+      "Congratulations! You've guested the number! Indeed it it was \u2911 " +
+        randomNumber
+    );
+    disableGame();
   }
 }
 
-// NOTE FOR ME - this messages functions can be one function that get message from the list and html tag needs to have this message like this:
+// Display message
 function displayMessage(htmlElement, message) {
   htmlElement.innerText = message;
 }
 
-function noErrors() {
-  errorMessage.innerText = "";
-}
-
-function displayCongratulations() {
-  information.innerText =
-    "Congratulations! You've guested the number! Indeed it it was \u2911 " +
-    randomNumber;
-}
-
-function displayGuesses() {
-  information.innerText = "You've already gueesed: " + userGuessArrray;
-}
-
-function displayYo() {
-  errorMessage.innerText = "Yo! Stay in the limits";
-}
-
-function displayLow() {
-  errorMessage.innerText = "Too low, try again.";
-}
-
-function dispalyHigh() {
-  errorMessage.innerText = "Too high, try again.";
-}
-
+// High, low of the limit
 function highOrLow(randomNumb, guess) {
   if (guess < 1 || guess > 100) {
-    displayYo();
+    displayMessage(errorMessage, "Yo! Stay in the limits");
   } else if (guess > randomNumb) {
-    dispalyHigh();
+    displayMessage(errorMessage, "Too high, try again.");
   } else if (guess < randomNumb) {
-    displayLow();
+    displayMessage(errorMessage, "Too low, try again.");
   } else {
     return;
   }
+}
+
+function numberOfGuessesCheck() {
+  if (guessAttempt === 10) {
+    disableGame();
+  }
+}
+
+function disableGame() {
+  displayMessage(
+    information,
+    "That was your tenth guess, try again. The number was  \u2911 " +
+      randomNumber
+  );
+  guessField.setAttribute("disabled", "");
+  guessSubmit.setAttribute("disabled", "");
+  displayMessage(errorMessage, "");
+  newGame.style.display = "";
 }
