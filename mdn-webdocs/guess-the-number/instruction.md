@@ -11,8 +11,8 @@
    - Tell the player they are wrong and whether their guess was too high or too low. - done
    - Allow them to enter another guess. - done
    - Increment the turn number by 1. - done
-8. If it is wrong and the player has no turns left:
+8. If it is wrong and the player has no turns left: - done
    - Tell the player it is game over.
    - Stop the player from being able to enter more guesses (this would mess the game up).
    - Display control allowing the player to restart the game.
-9. Once the game restarts, make sure the game logic and UI are completely reset, then go back to step 1.
+9. Once the game restarts, make sure the game logic and UI are completely reset, then go back to step 1. -done

@@ -1,8 +1,6 @@
-let randomNumber = Math.floor(Math.random() * 11 + 1); // random number
+let randomNumber = Math.floor(Math.random() * 100 + 1); // random number
 let guessAttempt = 1; // which attempt
 let userGuessArrray = []; // user guesses
-
-console.log(randomNumber);
 
 // html elements
 let guessField = document.getElementById("guessField");
@@ -15,18 +13,12 @@ let information = document.querySelector(".information");
 guessSubmit.addEventListener("click", () => {
   if (Number.isInteger(parseInt(guessField.value))) {
     guessAttempt++; // after submiting incresse
-    console.log(guessAttempt);
-    highOrLow(randomNumber, guessField.value);
-    isTheRandomNumber(guessField.value);
-    //The value property sets or returns the value of the value attribute of a text field.
-    let niceFormat = " " + guessField.value;
     //add guess to the table
-    addUserGuess(niceFormat);
-    //show values to the user
-    displayMessage(information, "You've already gueesed: " + userGuessArrray);
-    guessField.value = "";
-    console.log(userGuessArrray);
+    addUserGuess(" " + guessField.value);
+    highOrLow(randomNumber, guessField.value);
     numberOfGuessesCheck();
+    isTheRandomNumber(guessField.value);
+    guessField.value = "";
   } else {
     displayMessage(
       errorMessage,
@@ -39,6 +31,7 @@ guessSubmit.addEventListener("click", () => {
 newGame.addEventListener("click", () => {
   randomNumber = Math.floor(Math.random() * 11 + 1);
   userGuessArrray = [];
+  guessAttempt = 1;
   displayMessage(information, "You've already gueesed: " + userGuessArrray);
   newGame.style.display = "none";
   guessField.removeAttribute("disabled");
@@ -63,38 +56,49 @@ function isTheRandomNumber(number) {
   }
 }
 
-// Display message
-function displayMessage(htmlElement, message) {
-  htmlElement.innerText = message;
-}
-
 // High, low of the limit
 function highOrLow(randomNumb, guess) {
   if (guess < 1 || guess > 100) {
     displayMessage(errorMessage, "Yo! Stay in the limits");
+    whatAlreadyWasGuessed();
   } else if (guess > randomNumb) {
     displayMessage(errorMessage, "Too high, try again.");
+    whatAlreadyWasGuessed();
   } else if (guess < randomNumb) {
     displayMessage(errorMessage, "Too low, try again.");
+    whatAlreadyWasGuessed();
   } else {
     return;
   }
 }
 
 function numberOfGuessesCheck() {
-  if (guessAttempt === 10) {
-    disableGame();
+  if (guessAttempt === 11) {
+    tenGuesses();
   }
 }
 
 function disableGame() {
+  guessField.setAttribute("disabled", "");
+  guessSubmit.setAttribute("disabled", "");
+  displayMessage(errorMessage, "");
+  newGame.style.display = "";
+}
+
+function tenGuesses() {
   displayMessage(
     information,
     "That was your tenth guess, try again. The number was  \u2911 " +
       randomNumber
   );
-  guessField.setAttribute("disabled", "");
-  guessSubmit.setAttribute("disabled", "");
-  displayMessage(errorMessage, "");
-  newGame.style.display = "";
+  disableGame();
+}
+
+function whatAlreadyWasGuessed() {
+  displayMessage(information, "You've already gueesed: " + userGuessArrray);
+}
+
+// Display message
+function displayMessage(htmlElement, message) {
+  htmlElement.innerText = message;
 }
