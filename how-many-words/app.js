@@ -5,19 +5,10 @@ console.log(textStorage);
 console.log(counter);
 
 textStorage.addEventListener("input", () => {
-  let pasedString = textStorage.value;
-  let pasedStringLength = textStorage.value.length;
-  console.log(
-    `This is the string: ${pasedString} and this is it length: ${pasedStringLength}`
-  );
+  const pasedStringLength = textStorage.value.length;
 
-  const newCounterValue = `Words: 0 || Letters: 0 || Characters: ${pasedStringLength}`;
+  const letterCounter = textStorage.value.replace(/[^a-zA-Z]/g, "").length;
+
+  const newCounterValue = `Words: 0 || Letters: ${letterCounter} || Characters: ${pasedStringLength}`;
   displayedCounter.textContent = newCounterValue;
 });
-
-/* Way to remove all special characters 
-const str = "hello' 123 !@#$%^WORLD?.";
-console.log(str);
-const noSpecialCharacters = str.replace(/[^a-zA-Z0-9 ]/g, "");
-console.log(noSpecialCharacters);
-*/
