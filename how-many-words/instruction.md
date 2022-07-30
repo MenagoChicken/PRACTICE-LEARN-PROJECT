@@ -1,6 +1,6 @@
 - simple version -
 
-Just show how namy words and letters are in the thext that somebody paste or wrote in text input.
+Just show how namy words, characters (including spaces) are in the text that somebody paste or wrote in textarea.
 
 - harder -
 
