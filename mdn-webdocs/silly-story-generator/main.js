@@ -40,6 +40,13 @@ function result() {
     newStory = newStory.replaceAll("Bob", name);
   }
 
+  if (document.getElementById("uk").checked) {
+    const weight = Math.round(300 / 14);
+    const temperature = Math.round((94 - 32) * 0.5556);
+    newStory = newStory.replaceAll("94 fahrenheit", temperature);
+    newStory = newStory.replaceAll("300 pounds", weight);
+  }
+
   story.textContent = newStory;
   story.style.visibility = "visible";
 }
@@ -48,5 +55,3 @@ function randomValueFromArray(array) {
   const random = Math.floor(Math.random() * array.length);
   return array[random];
 }
-
-function checkForNewName() {}
