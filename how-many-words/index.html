@@ -5,16 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style.css" />
-    <script src="./app.js"></script>
+    <script src="./app.js" defer></script>
     <title>How many?</title>
   </head>
   <body>
     <div>
       <p>Words counter</p>
       <textarea
+        id="text-storage"
         placeholder="Start typing or paste your document here..."
       ></textarea>
-      <p>Words: 0 || Letters: 0</p>
+      <p id="counter">Words: 0 || Letters: 0</p>
     </div>
   </body>
 </html>
