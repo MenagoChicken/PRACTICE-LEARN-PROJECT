@@ -10,6 +10,9 @@ textStorage.addEventListener("input", () => {
   console.log(
     `This is the string: ${pasedString} and this is it length: ${pasedStringLength}`
   );
+
+  const newCounterValue = `Words: 0 || Letters: 0 || Characters: ${pasedStringLength}`;
+  displayedCounter.textContent = newCounterValue;
 });
 
 /* Way to remove all special characters 
