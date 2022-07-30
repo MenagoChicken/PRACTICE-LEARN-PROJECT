@@ -8,10 +8,37 @@ const storyString =
   then :insertz:. Bob saw the whole thing, but was not surprised \
    — :insertx: weighs 300 pounds, and it was a hot day.";
 
+const insertX = ["Willy the Goblin", "Big Daddy", "Father Christmas"];
+const insertY = ["the soup kitchen", "Disneyland", "the White House"];
+const insertZ = [
+  "spontaneously combusted",
+  "melted into a puddle on the sidewalk",
+  "turned into a slug and crawled away",
+];
 /*********** VARIABLES END ***********/
 
-randomizeButton.addEventListener("click", () => {
+/*********** FUNCTIONS CALLS ***********/
+
+randomizeButton.addEventListener("click", result);
+
+/*********** FUNCTIONS CALLS END ***********/
+
+/*********** FUNCTIONS LOGIC ***********/
+
+function result() {
   console.log("Randomize click!");
-  story.textContent = storyString;
+  xItem = randomValueFromArray(insertX);
+  yItem = randomValueFromArray(insertY);
+  zItem = randomValueFromArray(insertZ);
+  let newStory = storyString.replaceAll(":insertx:", xItem);
+  newStory = newStory.replaceAll(":inserty:", yItem);
+  newStory = newStory.replaceAll(":insertz:", zItem);
+
+  story.textContent = newStory;
   story.style.visibility = "visible";
-});
+}
+
+function randomValueFromArray(array) {
+  const random = Math.floor(Math.random() * array.length);
+  return array[random];
+}
