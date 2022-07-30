@@ -27,12 +27,18 @@ randomizeButton.addEventListener("click", result);
 
 function result() {
   console.log("Randomize click!");
-  xItem = randomValueFromArray(insertX);
-  yItem = randomValueFromArray(insertY);
-  zItem = randomValueFromArray(insertZ);
+
+  const xItem = randomValueFromArray(insertX);
+  const yItem = randomValueFromArray(insertY);
+  const zItem = randomValueFromArray(insertZ);
   let newStory = storyString.replaceAll(":insertx:", xItem);
   newStory = newStory.replaceAll(":inserty:", yItem);
   newStory = newStory.replaceAll(":insertz:", zItem);
+
+  if (customName.value !== "") {
+    const name = customName.value;
+    newStory = newStory.replaceAll("Bob", name);
+  }
 
   story.textContent = newStory;
   story.style.visibility = "visible";
@@ -42,3 +48,5 @@ function randomValueFromArray(array) {
   const random = Math.floor(Math.random() * array.length);
   return array[random];
 }
+
+function checkForNewName() {}
