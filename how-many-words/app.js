@@ -10,8 +10,8 @@ textStorage.addEventListener("input", () => {
   const wordsArray = textStorage.value.split(/\s/g);
 
   for (const word of wordsArray) {
-    if (word.length !== 0) {
-      const simpleWord = word.replace(/[^a-zA-Ząćęłóśżź]/g, "");
+    const simpleWord = word.replace(/[^a-zA-Ząćęłóśżź]/g, "");
+    if (simpleWord.length !== 0) {
       letterCounter += simpleWord.length;
       wordCounter++;
     }

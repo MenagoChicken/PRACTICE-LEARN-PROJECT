@@ -31,10 +31,20 @@ const wordsMap = new Map();
 
 for (const word of words) {
   if (wordsMap.get(word) !== undefined) {
-    const wordCounter = wordsMap.get(word);
-    console.log(wordCounter);
+    let wordCounter = wordsMap.get(word);
+    wordCounter += 1;
+    wordsMap.set(word, wordCounter);
   } else {
-    wordsMap.set(word, 0);
+    wordsMap.set(word, 1);
+  }
+}
+
+let bestWord = ["", 0];
+
+for (const [key, value] of wordsMap) {
+  if (value > bestWord[1]) {
+    bestWord = [key, value];
+    console.log(bestWord);
   }
 }
 
