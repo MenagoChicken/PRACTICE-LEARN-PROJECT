@@ -39,7 +39,7 @@ for (const word of words) {
   }
 }
 
-let bestWord = ["", 0];
+let bestWords = ["", 0];
 
 for (const [key, value] of wordsMap) {
   if (value > bestWord[1]) {
