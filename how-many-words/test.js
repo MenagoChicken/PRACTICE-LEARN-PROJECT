@@ -30,5 +30,12 @@ const words = [
 const wordsMap = new Map();
 
 for (const word of words) {
-  console.log(word);
+  if (wordsMap.get(word) !== undefined) {
+    const wordCounter = wordsMap.get(word);
+    console.log(wordCounter);
+  } else {
+    wordsMap.set(word, 0);
+  }
 }
+
+console.log(wordsMap);
