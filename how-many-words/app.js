@@ -1,15 +1,14 @@
 /*********** VARIEABLES */
 const textStorage = document.getElementById("text-storage");
 const displayedCounter = document.querySelector("#counter");
-console.log(textStorage);
-console.log(counter);
 
 textStorage.addEventListener("input", () => {
-  const pasedStringLength = textStorage.value.length;
-
-  const wordsArray = textStorage.value.split(/\s/g);
+  let charCounter = textStorage.value.length; //counter for characters -> it does count white spaces as well
   let letterCounter = 0;
   let wordCounter = 0;
+
+  const wordsArray = textStorage.value.split(/\s/g);
+
   for (const word of wordsArray) {
     if (word.length !== 0) {
       const simpleWord = word.replace(/[^a-zA-Ząćęłóśżź]/g, "");
@@ -18,7 +17,6 @@ textStorage.addEventListener("input", () => {
     }
   }
 
-  console.log(wordsArray);
-  const newCounterValue = `Words: ${wordCounter} || Letters: ${letterCounter} || Characters: ${pasedStringLength}`;
+  const newCounterValue = `Words: ${wordCounter} || Letters: ${letterCounter} || Characters: ${charCounter}`;
   displayedCounter.textContent = newCounterValue;
 });
