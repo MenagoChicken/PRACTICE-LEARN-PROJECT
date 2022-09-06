@@ -48,7 +48,7 @@ function isTheRandomNumber(number) {
     displayMessage(errorMessage, "");
     displayMessage(
       information,
-      "Congratulations! You've guested the number! Indeed it it was \u2911 " +
+      "Congratulations! You've guested the number! Indeed it was \u2911 " +
         randomNumber
     );
     disableGame();
