@@ -1,16 +1,16 @@
 /*********** VARIEABLES */
-const textStorage = document.getElementById("text-storage");
+const textArea = document.getElementById("floatingTextarea");
 const displayedCounter = document.querySelector("#counter");
 const displayedOccurrences = document.querySelector("#occurrences");
 
-textStorage.addEventListener("input", () => {
-  let charCounter = textStorage.value.length; //counter for characters -> it does count white spaces as well
+textArea.addEventListener("input", () => {
+  let charCounter = textArea.value.length; //counter for characters -> it does count white spaces as well
   let letterCounter = 0;
   let wordCounter = 0;
   let bestWords = ["", 0];
   const wordsMap = new Map();
 
-  const wordsArray = textStorage.value.split(/\s/g);
+  const wordsArray = textArea.value.split(/\s/g);
 
   for (const word of wordsArray) {
     const simpleWord = word.replace(/[^a-zA-Ząćęłóśżź]/g, "");
@@ -41,3 +41,7 @@ textStorage.addEventListener("input", () => {
   displayedOccurrences.textContent = newOccurrencesValue;
   displayedCounter.textContent = newCounterValue;
 });
+
+// <div class="progress">
+// <div class="progress-bar" role="progressbar" aria-label="Example with label" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+// </div>

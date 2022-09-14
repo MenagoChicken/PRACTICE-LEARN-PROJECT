@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- BOOTSTRAP -->
+    <!------------ BOOTSTRAP -------------->
     <!-- CSS only -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
@@ -19,36 +19,39 @@
       crossorigin="anonymous"
     ></script>
 
+    <!------------ BACK BUTTON ------------>
+    <!-- BUTTON FONTS-->
     <script
       src="https://kit.fontawesome.com/2f5ef0f8ed.js"
       crossorigin="anonymous"
     ></script>
 
+    <!-- BUTTON CSS-->
     <link
       rel="stylesheet"
       href="../../back_button_css/portfolioBackButton.css"
     />
-    <link rel="stylesheet" href="./style.css" />
     <script src="./app.js" defer></script>
+
+    <!------------ ADDITONAL CSS ------------>
+    <link rel="stylesheet" href="style.css" />
     <title>How many?</title>
   </head>
   <body>
-    <a href="../../../index.html#portfolio" class="portfolio-btn"
-      ><i class="fa-solid fa-reply"></i
-    ></a>
-    <div class="container-fluid">
-      <p>Words counter</p>
-      <textarea
-        id="text-storage"
-        placeholder="Start typing or paste your document here..."
-      ></textarea>
+    <div class="container text-center">
+      <a href="../../../index.html#portfolio" class="portfolio-btn"
+        ><i class="fa-solid fa-reply"></i
+      ></a>
+      <h1 class="display-1">Words counter</h1>
       <div class="form-floating">
         <textarea
           class="form-control"
-          placeholder="Leave a comment here"
+          placeholder="Start typing or paste your document here..."
           id="floatingTextarea"
         ></textarea>
-        <label for="floatingTextarea">Comments</label>
+        <label for="floatingTextarea"
+          >Start typing or paste your document here...</label
+        >
       </div>
       <p id="counter">Words: 0 || Letters: 0 || Characters: 0</p>
       <p id="occurrences">Most used word: || Occurrences: 0</p>
