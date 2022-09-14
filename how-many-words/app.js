@@ -8,7 +8,33 @@ textArea.addEventListener("input", () => {
   let simpleRegEx = /\s/g;
   let text = textArea.value;
   let textWithoutSpaces = text.replace(simpleRegEx, "");
-  console.log(textWithoutSpaces);
+  let characters = [];
+
+  for (let index = 0; index < textWithoutSpaces.length; index++) {
+    const letter = textWithoutSpaces[index];
+    if (characters.length === 0) {
+      leterAndCount = {
+        char: letter,
+        count: 1,
+      };
+      characters.push(leterAndCount);
+    } else {
+      for (let i = 0; i < characters.length; i++) {
+        if (characters[i].char === letter) {
+          characters[i].count++;
+        } else {
+          leterAndCount = {
+            char: letter,
+            count: 1,
+          };
+          characters.push(leterAndCount);
+        }
+      }
+    }
+    // console.log(characters);
+  }
+
+  // console.log(textWithoutSpaces);
   // let charCounter = textArea.value.length; //counter for characters -> it does count white spaces as well
 
   // let letterCounter = 0;
