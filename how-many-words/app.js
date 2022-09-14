@@ -13,26 +13,23 @@ textArea.addEventListener("input", () => {
   for (let index = 0; index < textWithoutSpaces.length; index++) {
     const letter = textWithoutSpaces[index];
     if (characters.length === 0) {
-      leterAndCount = {
+      let letterAndCount = {
         char: letter,
         count: 1,
       };
-      characters.push(leterAndCount);
+      characters.push(letterAndCount);
     } else {
+      console.log("dodaje dalej ale nic nie dodaje");
       for (let i = 0; i < characters.length; i++) {
         if (characters[i].char === letter) {
-          characters[i].count++;
+          console.log("tak");
         } else {
-          leterAndCount = {
-            char: letter,
-            count: 1,
-          };
-          characters.push(leterAndCount);
+          console.log("nie");
         }
       }
     }
-    // console.log(characters);
   }
+  console.log(characters);
 
   // console.log(textWithoutSpaces);
   // let charCounter = textArea.value.length; //counter for characters -> it does count white spaces as well
