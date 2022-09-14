@@ -4,44 +4,49 @@ const displayedCounter = document.querySelector("#counter");
 const displayedOccurrences = document.querySelector("#occurrences");
 
 textArea.addEventListener("input", () => {
-  let charCounter = textArea.value.length; //counter for characters -> it does count white spaces as well
-  let letterCounter = 0;
-  let wordCounter = 0;
-  let bestWords = ["", 0];
-  let simpleRegEx = /\s/;
-  let complexRegEx = /[^a-zA-Ząćęłóśżź]/;
-  const wordsMap = new Map();
+  // console.log(textArea.value);
+  let simpleRegEx = /\s/g;
+  let text = textArea.value;
+  let textWithoutSpaces = text.replace(simpleRegEx, "");
+  console.log(textWithoutSpaces);
+  // let charCounter = textArea.value.length; //counter for characters -> it does count white spaces as well
 
-  const wordsArray = textArea.value.split(simpleRegEx);
+  // let letterCounter = 0;
+  // let wordCounter = 0;
+  // let bestWords = ["", 0];
+  // let simpleRegEx = /\s/;
+  // let complexRegEx = /[^a-zA-Ząćęłóśżź]/g;
+  // const wordsMap = new Map();
 
-  for (const word of wordsArray) {
-    const simpleWord = word.replace(complexRegEx, "");
+  // const wordsArray = textArea.value.split(simpleRegEx);
 
-    if (simpleWord.length !== 0) {
-      letterCounter += simpleWord.length;
-      wordCounter++;
+  // for (const word of wordsArray) {
+  //   let lettersTable = [];
+  //   const simpleWord = word.replace(complexRegEx, "");
+  //   console.log(simpleWord);
+  //   if (simpleWord.length !== 0) {
+  //     letterCounter += simpleWord.length;
+  //     wordCounter++;
+  //     if (wordsMap.get(simpleWord) !== undefined) {
+  //       let wordCounter = wordsMap.get(simpleWord);
+  //       wordCounter += 1;
+  //       wordsMap.set(simpleWord, wordCounter);
+  //     } else {
+  //       wordsMap.set(simpleWord, 1);
+  //     }
+  //     for (const [key, value] of wordsMap) {
+  //       if (value > bestWords[1]) {
+  //         bestWords = [key, value];
+  //       }
+  //     }
+  //   }
+  // }
 
-      if (wordsMap.get(simpleWord) !== undefined) {
-        let wordCounter = wordsMap.get(simpleWord);
-        wordCounter += 1;
-        wordsMap.set(simpleWord, wordCounter);
-      } else {
-        wordsMap.set(simpleWord, 1);
-      }
+  // const newOccurrencesValue = `Most used word: ${bestWords[0]} || Occurrences: ${bestWords[1]}`;
+  // const newCounterValue = `Words: ${wordCounter} || Letters: ${letterCounter} || Characters: ${charCounter}`;
 
-      for (const [key, value] of wordsMap) {
-        if (value > bestWords[1]) {
-          bestWords = [key, value];
-          console.log(bestWords);
-        }
-      }
-    }
-  }
-  const newOccurrencesValue = `Most used word: ${bestWords[0]} || Occurrences: ${bestWords[1]}`;
-  const newCounterValue = `Words: ${wordCounter} || Letters: ${letterCounter} || Characters: ${charCounter}`;
-
-  displayedOccurrences.textContent = newOccurrencesValue;
-  displayedCounter.textContent = newCounterValue;
+  // displayedOccurrences.textContent = newOccurrencesValue;
+  // displayedCounter.textContent = newCounterValue;
 });
 
 // <div class="progress">
