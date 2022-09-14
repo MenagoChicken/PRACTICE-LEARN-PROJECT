@@ -8,12 +8,14 @@ textArea.addEventListener("input", () => {
   let letterCounter = 0;
   let wordCounter = 0;
   let bestWords = ["", 0];
+  let simpleRegEx = /\s/;
+  let complexRegEx = /[^a-zA-Ząćęłóśżź]/;
   const wordsMap = new Map();
 
-  const wordsArray = textArea.value.split(/\s/g);
+  const wordsArray = textArea.value.split(simpleRegEx);
 
   for (const word of wordsArray) {
-    const simpleWord = word.replace(/[^a-zA-Ząćęłóśżź]/g, "");
+    const simpleWord = word.replace(complexRegEx, "");
 
     if (simpleWord.length !== 0) {
       letterCounter += simpleWord.length;
