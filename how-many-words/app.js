@@ -1,5 +1,5 @@
 /*********** VARIEABLES */
-const textStorage = document.getElementById("text-storage");
+const textStorage = document.getElementById("floatingTextarea");
 const displayedCounter = document.querySelector("#counter");
 const displayedOccurrences = document.querySelector("#occurrences");
 
